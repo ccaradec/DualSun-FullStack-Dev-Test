@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+valid:
+  name: MyCompany
+  siren: 123456789
+
+valid2:
+  name: MyCompany
+  siren: 123456789
