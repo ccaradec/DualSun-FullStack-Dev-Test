@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+valid:
+  company: valid
+  customer: valid
+  street: 8 rue de Paris
+  city: Paris
+  zipcode: 75001
+  country: France
+  installation_date: 2022-08-08 13:37:42
+
