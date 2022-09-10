@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_10_115247) do
+ActiveRecord::Schema.define(version: 2022_09_10_122736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 2022_09_10_115247) do
     t.index ["customer_id"], name: "index_installations_on_customer_id"
   end
 
+  create_table "panels", force: :cascade do |t|
+    t.bigint "installation_id", null: false
+    t.integer "panel_type", default: 0
+    t.string "panel_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["installation_id"], name: "index_panels_on_installation_id"
+  end
+
   add_foreign_key "installations", "companies"
   add_foreign_key "installations", "customers"
+  add_foreign_key "panels", "installations"
 end
