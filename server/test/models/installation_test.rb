@@ -21,13 +21,11 @@ class InstallationTest < ActiveSupport::TestCase
     assert_not_empty @installation.errors[:city], 'No validation error for city present'
   end
 
-
   test 'invalid without zipcode' do
     @installation.zipcode = nil
     refute @installation.valid?, 'Installation is valid without a zipcode'
     assert_not_empty @installation.errors[:zipcode], 'No validation error for zipcode present'
   end
-
 
   test 'invalid without country' do
     @installation.country = nil

@@ -16,5 +16,4 @@ class PanelTest < ActiveSupport::TestCase
     refute @panel.valid?, 'Panel is valid without a type'
     assert_not_empty @panel.errors[:panel_type], 'No validation error for no type present'
   end
-
 end
