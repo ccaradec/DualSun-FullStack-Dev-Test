@@ -2,7 +2,7 @@ require "test_helper"
 
 class PanelTest < ActiveSupport::TestCase
   def setup
-    @panel = panels(:valid)
+    @panel = panels(:one)
   end
 
   test 'invalid without proper ID' do

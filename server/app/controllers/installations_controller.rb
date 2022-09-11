@@ -59,7 +59,8 @@ class InstallationsController < ApplicationController
 
       @panels = []
       installation_params[:panels].each do |p|
-        @panels << Panel.find_by(p) || Panel.new(p)
+        panel = Panel.find_by(p) || Panel.new(p)
+        @panels << panel
       end
     end
 

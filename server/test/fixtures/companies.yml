@@ -1,5 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-valid:
+one:
   name: MyCompany
   siren: 123456789
+
+two:
+  name: OtherCompany
+  siren: 987654321

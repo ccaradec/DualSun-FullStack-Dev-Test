@@ -2,7 +2,7 @@ require "test_helper"
 
 class InstallationTest < ActiveSupport::TestCase
   def setup
-    @installation = installations(:valid)
+    @installation = installations(:one)
   end
 
   test 'valid installation' do

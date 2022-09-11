@@ -2,7 +2,7 @@ require "test_helper"
 
 class CustomerTest < ActiveSupport::TestCase
   def setup
-    @customer = customers(:valid)
+    @customer = customers(:one)
   end
 
   test 'valid customer' do

@@ -2,7 +2,7 @@ require "test_helper"
 
 class InstallationsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @installation = installations(:valid)
+    @installation = installations(:one)
   end
 
   test "should get index" do
@@ -13,6 +13,30 @@ class InstallationsControllerTest < ActionDispatch::IntegrationTest
   test "should create installation" do
     assert_difference('Installation.count') do
       post installations_url, params: { installation: @installation }, as: :json
+    end
+
+    assert_response 201
+  end
+
+  test "should not recreate company if it exists" do
+    installation = installations(:two)
+    assert_no_difference('Company.count') do
+      post installations_url, params: { installation: installation }, as: :json
+    end
+    assert_difference('Installation.count') do
+      post installations_url, params: { installation: installation }, as: :json
+    end
+
+    assert_response 201
+  end
+
+  test "should not recreate customer if it exists" do
+    installation = installations(:three)
+    assert_no_difference('Customer.count') do
+      post installations_url, params: { installation: installation }, as: :json
+    end
+    assert_difference('Installation.count') do
+      post installations_url, params: { installation: installation }, as: :json
     end
 
     assert_response 201
@@ -35,6 +59,12 @@ class InstallationsControllerTest < ActionDispatch::IntegrationTest
   test "should update installation" do
     patch installation_url(@installation), params: { installation: @installation }, as: :json
     assert_response 200
+  end
+
+  test "should return error on invalid update" do
+    @installation.city = nil
+    patch installation_url(@installation), params: { installation: @installation }, as: :json
+    assert_response 422
   end
 
   test "should destroy installation" do
