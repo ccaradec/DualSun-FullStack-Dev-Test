@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fname: Jean
+  lname: Durand
+  email: jean.durand@mail.com
+  phone: +33123456789
+
+two:
+  fname: Paul
+  lname: Henri
+  email: paul.henri@mail.com
+  phone: +33987654321
